@@ -32,6 +32,16 @@ addBtn.addEventListener("click", function(event){
         newCourseAmount.innerHTML = courseAmount.value;
         newRow.appendChild(newCourseAmount);
 
+        //creating delete button
+        const deleteBtn = document.createElement('td');
+        deleteBtn.innerHTML = `<button class="deleteBtn">Delete</button>`
+        newRow.appendChild(deleteBtn);
+
+        deleteBtn.addEventListener("click", function(event){
+            event.target.parentNode.parentNode.remove(event.target);
+        })
+       
+       
         // Display the tabele
         studentList.appendChild(newRow)
 
@@ -44,4 +54,7 @@ addBtn.addEventListener("click", function(event){
     }
 
 })
+
+
+
 
