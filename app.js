@@ -8,7 +8,6 @@ const studentList = document.getElementById("student-list");
 addBtn.addEventListener("click", function(event){
     event.preventDefault();
 
-
     if( studentName.value == "" || courseName.value == "" || courseAmount.value == ""){
         alert("Fill The All Fields") //form validation
     } else {
@@ -34,17 +33,19 @@ addBtn.addEventListener("click", function(event){
 
         //creating delete button
         const deleteBtn = document.createElement('td');
-        deleteBtn.innerHTML = `<button class="deleteBtn">Delete</button>`
+        deleteBtn.innerHTML = `<button class="btn btn-danger deleteBtn">Delete</button>`
         newRow.appendChild(deleteBtn);
 
+        // Display the tabele
+        studentList.appendChild(newRow)
+
+
+        //deleteting the row
         deleteBtn.addEventListener("click", function(event){
             event.target.parentNode.parentNode.remove(event.target);
         })
        
-       
-        // Display the tabele
-        studentList.appendChild(newRow)
-
+        
         //cleaning value after submission
         studentName.value = "";
         courseName.value = "";
